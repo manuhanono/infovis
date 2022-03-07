@@ -1,2 +1,2 @@
 # infovis
-https://education.github.com/git-cheat-sheet-education.pdf
+https://www.markdownguide.org/cheat-sheet/
