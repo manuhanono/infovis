@@ -1,2 +1,8 @@
-hola 
-mundo
+nuanced judgements
+visual encodings
+stacked
+drill-down
+horizon graphs
+splom
+
+
