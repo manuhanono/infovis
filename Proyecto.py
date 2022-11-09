@@ -6,7 +6,7 @@ import pydeck as pdk
 
 DATA_URL = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
 
-st.title("Motor Vehicles Collision in New York City")
+st.title("Trabajo Final Proyecto I - Manuel Hanono y Bruno Soifer.")
 st.markdown("This application is streamlit dashboard that can be used to analyze motor vehicle collision in NYC")
 st.markdown("This may take a while as the CSV file is 185MB")
 
