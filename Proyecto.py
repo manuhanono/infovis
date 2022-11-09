@@ -66,7 +66,7 @@ def load_data(rows):
     return data
 
 data = load_data(1937848)
-data.rename(columns={"NUMBER OF PEDESTRIANS INJURED": "PED_INJ"})
+data.rename(columns={"NUMBER OF PERSONS INJURED": "PINJ"})
 
 
 # for use with dropdown
@@ -78,7 +78,7 @@ if st.checkbox("Visualizar Datos Crudos",False):
 
 st.header("Where are the most people injured in NYC?")
 injured_people = st.slider("Number of persons injured in NYC",0,19)
-st.map(data.query("PED_INJ >= @injured_people")[['latitude', 'longitude']].dropna(how="any"))
+st.map(data.query("PINJ >= @injured_people")[['latitude', 'longitude']].dropna(how="any"))
     
 # make a dropdown search
 st.header("Top 5 dangerous streets affected by types")
