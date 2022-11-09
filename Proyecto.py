@@ -38,6 +38,7 @@ st.markdown("Manuel Hanono y Bruno Soifer.")
 st.sidebar.write("Seleccionar los años")
 st.sidebar.button("2010")
 
+@st.experimental_memo
 def load_data(rows):
     df1 = pd.read_csv(DATA_URL1)
     df2 = pd.read_csv(DATA_URL2)
