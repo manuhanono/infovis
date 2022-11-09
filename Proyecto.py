@@ -67,10 +67,11 @@ def load_data(rows):
 
 data = load_data(100000)
 
-
+#Manipulacion del DATASET extra
 
 data = data.rename(columns={"NUMBER OF PERSONS INJURED": "PINJ", "LATITUDE": "lat", "LONGITUDE": "lon", "CRASH DATE": "DATE"})
-
+data['YEAR'] = pd.DatetimeIndex(df['DATE']).year
+data['MONTH'] = pd.DatetimeIndex(df['DATE']).month
 
 # for use with dropdown
 original_data = data
