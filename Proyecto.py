@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pydeck as pdk
+from datetime import datetime
 
 #DATA_URL = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
 
@@ -67,7 +68,7 @@ def load_data(rows):
 data = load_data(100000)
 
 data = data.rename(columns={"NUMBER OF PERSONS INJURED": "PINJ", "LATITUDE": "lat", "LONGITUDE": "lon", "CRASH DATE": "DATE"})
-
+data = datetime.strptime(data["DATE"], '%y-%m-%d')
 
 # for use with dropdown
 original_data = data
