@@ -65,7 +65,7 @@ def load_data(rows):
     data = data.head(rows)
     return data
 
-data = load_data(100000)
+data = load_data(1000000)
 
 #Manipulacion del DATASET extra
 
@@ -85,7 +85,6 @@ st.sidebar.header("Filtrar por:")
 # Create a list of possible values and multiselect menu with them in it.
 YEARS = data['YEAR'].unique()
 YEARS_SELECTED = st.sidebar.multiselect('Años:', YEARS)
-
 # Mask to filter dataframe
 mask_years = data['YEAR'].isin(YEARS_SELECTED)
 data = data[mask_years]
@@ -93,7 +92,6 @@ data = data[mask_years]
 # Create a list of possible values and multiselect menu with them in it.
 BOROUGH = data['BOROUGH'].unique()
 BOROUGH_SELECTED = st.sidebar.multiselect('Barrios:', BOROUGH)
-
 # Mask to filter dataframe
 mask_borough = data['BOROUGH'].isin(BOROUGH_SELECTED)
 data = data[mask_borough]
