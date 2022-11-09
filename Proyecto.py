@@ -34,6 +34,8 @@ DATA_URL25 = ("https://raw.githubusercontent.com/manuhanono/infovis/main/splitcs
 
 st.title("Trabajo Final Proyecto I - NY Crashes")
 st.markdown("Manuel Hanono y Bruno Soifer.")
+st.sidebar.button("Aaa")
+
 
 @st.cache(persist=True)
 def load_data(rows):
