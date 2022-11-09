@@ -84,7 +84,7 @@ st.sidebar.header("Filtrar por:")
 
 # Create a list of possible values and multiselect menu with them in it.
 YEARS = data['YEAR'].unique()
-YEARS_SELECTED = st.sidebar.multiselect('Años:', YEAR)
+YEARS_SELECTED = st.sidebar.multiselect('Años:', YEARS)
 
 # Mask to filter dataframe
 mask_years = data['YEAR'].isin(YEARS_SELECTED)
