@@ -83,11 +83,11 @@ st.markdown("Manuel Hanono y Bruno Soifer.")
 st.sidebar.header("Filtrar por:")
 
 # Create a list of possible values and multiselect menu with them in it.
-YEARS = data['DATE'].unique()
-YEARS_SELECTED = st.sidebar.multiselect('Años:', YEARS)
+YEARS = data['YEAR'].unique()
+YEARS_SELECTED = st.sidebar.multiselect('Años:', YEAR)
 
 # Mask to filter dataframe
-mask_years = data['BOROUGH'].isin(YEARS_SELECTED)
+mask_years = data['YEAR'].isin(YEARS_SELECTED)
 data = data[mask_years]
 
 # Create a list of possible values and multiselect menu with them in it.
