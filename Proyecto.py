@@ -76,6 +76,10 @@ data = load_data(1937848)
 # for use with dropdown
 original_data = data
 
+if st.checkbox("Visualizar Datos Crudos",False):
+    st.subheader("Datos Crudos")
+    st.write(data)
+
 # analyze to table
 st.header("Where are the most people injured in NYC?")
 injured_people = st.slider("Number of persons injured in NYC",0,19)
@@ -129,6 +133,4 @@ elif select == 'Motorists':
     st.write(original_data.query("injured_motorists >= 1")[['on_street_name', 'injured_motorists']].sort_values(by=['injured_motorists'], ascending=False).dropna(how='any')[:5])
 
 
-if st.checkbox("Show Raw Data",False):
-    st.subheader("Raw Data")
-    st.write(data)
+
