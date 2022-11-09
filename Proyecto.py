@@ -74,7 +74,7 @@ original_data = data
 
 if st.checkbox("Visualizar Datos Crudos",False):
     st.subheader("Datos Crudos")
-    st.write(data.tail(10))
+    st.write(data.columns)
 
 st.header("Where are the most people injured in NYC?")
 injured_people = st.slider("Number of persons injured in NYC",0,19)
