@@ -36,7 +36,6 @@ st.title("Trabajo Final Proyecto I - NY Crashes")
 st.markdown("Manuel Hanono y Bruno Soifer.")
 
 st.sidebar.write("Seleccionar los años")
-st.sidebar.multiselect()
 
 # Create a list of possible values and multiselect menu with them in it.
 YEARS = data['BOROUGH'].unique().dropna(how="any")
