@@ -3,20 +3,67 @@ import pandas as pd
 import numpy as np
 import pydeck as pdk
 
+#DATA_URL = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+
+DATA_URL1 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL2 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL3 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL4 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL5 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL6 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL7 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL8 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL9 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL10 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL11 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL12 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL13 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL14 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL15 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL16 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL17 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL18 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL19 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL20 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL21 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL22 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL23 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL24 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+DATA_URL25 = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
 
 
-
-
-DATA_URL = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
-
-st.title("Trabajo Final Proyecto I - Manuel Hanono y Bruno Soifer.")
-st.markdown("This application is streamlit dashboard that can be used to analyze motor vehicle collision in NYC")
-st.markdown("This may take a while as the CSV file is 185MB")
-
+st.title("Trabajo Final Proyecto I - NY Crashes")
+st.markdown("Manuel Hanono y Bruno Soifer.")
 
 @st.cache(persist=True)
 def load_data(rows):
-    data = pd.read_csv(DATA_URL, nrows= rows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
+    #data = pd.read_csv(DATA_URL1, nrows= rows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
+    df1 = pd.read_csv(DATA_URL1)
+    df2 = pd.read_csv(DATA_URL2)
+    df3 = pd.read_csv(DATA_URL3)
+    df4 = pd.read_csv(DATA_URL4)
+    df5 = pd.read_csv(DATA_URL5)
+    df6 = pd.read_csv(DATA_URL6)
+    df7 = pd.read_csv(DATA_URL7)
+    df8 = pd.read_csv(DATA_URL8)
+    df9 = pd.read_csv(DATA_URL9)
+    df10 = pd.read_csv(DATA_URL10)
+    df11 = pd.read_csv(DATA_URL11)
+    df12 = pd.read_csv(DATA_URL12)
+    df13 = pd.read_csv(DATA_URL13)
+    df14 = pd.read_csv(DATA_URL14)
+    df15 = pd.read_csv(DATA_URL15)
+    df16 = pd.read_csv(DATA_URL16)
+    df17 = pd.read_csv(DATA_URL17)
+    df18 = pd.read_csv(DATA_URL18)
+    df19 = pd.read_csv(DATA_URL19)
+    df20 = pd.read_csv(DATA_URL20)
+    df21 = pd.read_csv(DATA_URL21)
+    df22 = pd.read_csv(DATA_URL22)
+    df23 = pd.read_csv(DATA_URL23)
+    df24 = pd.read_csv(DATA_URL24)
+    df25 = pd.read_csv(DATA_URL25)
+    data=pd.concat([df1,df2,df3,df4,df5,df6,df7,df8,df9,df10,df11,df12,df13,df14,df15,df16,df17,df18,df19,df20,df21,df22,df23,df24,df25],ignore_index=True)
     # data.seek(0)
     data.dropna(subset =['LATITUDE', 'LONGITUDE'], inplace=True)
     lowercase = lambda x: str(x).lower()
@@ -24,7 +71,7 @@ def load_data(rows):
     data.rename(columns={'crash_date_crash_time':'date/time'},inplace=True)
     return data
 
-data = load_data(100000)
+data = load_data(1950000)
 
 # for use with dropdown
 original_data = data
