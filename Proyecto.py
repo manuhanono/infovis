@@ -31,19 +31,6 @@ DATA_URL23 = ("https://raw.githubusercontent.com/manuhanono/infovis/main/splitcs
 DATA_URL24 = ("https://raw.githubusercontent.com/manuhanono/infovis/main/splitcsv-c9ce4b82-b1ac-45ed-9e57-bbbd7dbcfc8d-results/crashes-24.csv")
 DATA_URL25 = ("https://raw.githubusercontent.com/manuhanono/infovis/main/splitcsv-c9ce4b82-b1ac-45ed-9e57-bbbd7dbcfc8d-results/crashes-25.csv")
 
-
-st.title("Trabajo Final Proyecto I - NY Crashes")
-st.markdown("Manuel Hanono y Bruno Soifer.")
-
-st.sidebar.write("Seleccionar los años")
-
-# Create a list of possible values and multiselect menu with them in it.
-YEARS = data['BOROUGH'].unique().dropna(how="any")
-YEARS_SELECTED = st.multiselect('Seleccionar años:', YEARS)
-
-# Mask to filter dataframe
-mask_countries = data['country'].isin(COUNTRIES_SELECTED)
-
 data = data[mask_countries]
 
 @st.cache(persist=True)
@@ -84,6 +71,20 @@ data = data.rename(columns={"NUMBER OF PERSONS INJURED": "PINJ", "LATITUDE": "la
 
 # for use with dropdown
 original_data = data
+
+
+st.title("Trabajo Final Proyecto I - NY Crashes")
+st.markdown("Manuel Hanono y Bruno Soifer.")
+
+st.sidebar.write("Seleccionar los años")
+
+# Create a list of possible values and multiselect menu with them in it.
+YEARS = data['BOROUGH'].unique().dropna(how="any")
+YEARS_SELECTED = st.multiselect('Seleccionar años:', YEARS)
+
+# Mask to filter dataframe
+mask_countries = data['country'].isin(COUNTRIES_SELECTED)
+
 
 if st.checkbox("Visualizar Datos Crudos",False):
     st.subheader("Datos Crudos")
