@@ -78,7 +78,7 @@ original_data = data
 
 if st.checkbox("Visualizar Datos Crudos",False):
     st.subheader("Datos Crudos")
-    st.write(data.head(10)
+    st.write(data.head(10))
 
 # analyze to table
 st.header("Where are the most people injured in NYC?")
