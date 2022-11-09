@@ -76,15 +76,23 @@ original_data = data
 st.title("Trabajo Final Proyecto I - NY Crashes")
 st.markdown("Manuel Hanono y Bruno Soifer.")
 
-st.sidebar.header("Seleccionar los años:")
+st.sidebar.header("Filtrar por:")
 
 # Create a list of possible values and multiselect menu with them in it.
 YEARS = data['BOROUGH'].unique()
-YEARS_SELECTED = st.sidebar.multiselect('Seleccionar años:', YEARS)
+YEARS_SELECTED = st.sidebar.multiselect('Años:', YEARS)
 
 # Mask to filter dataframe
-mask_countries = data['BOROUGH'].isin(YEARS_SELECTED)
-data = data[mask_countries]
+mask_years = data['BOROUGH'].isin(YEARS_SELECTED)
+data = data[mask_years]
+
+# Create a list of possible values and multiselect menu with them in it.
+BOROUGH = data['BOROUGH'].unique()
+BOROUGH_SELECTED = st.sidebar.multiselect('Barrios:', BOROUGH)
+
+# Mask to filter dataframe
+mask_borough = data['BOROUGH'].isin(BOROUGH_SELECTED)
+data = data[mask_borough]
 
 if st.checkbox("Visualizar Datos Crudos",False):
     st.subheader("Datos Crudos")
