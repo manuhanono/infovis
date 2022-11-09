@@ -31,7 +31,7 @@ DATA_URL23 = ("https://raw.githubusercontent.com/manuhanono/infovis/main/splitcs
 DATA_URL24 = ("https://raw.githubusercontent.com/manuhanono/infovis/main/splitcsv-c9ce4b82-b1ac-45ed-9e57-bbbd7dbcfc8d-results/crashes-24.csv")
 DATA_URL25 = ("https://raw.githubusercontent.com/manuhanono/infovis/main/splitcsv-c9ce4b82-b1ac-45ed-9e57-bbbd7dbcfc8d-results/crashes-25.csv")
 
-data = data[mask_countries]
+
 
 @st.cache(persist=True)
 def load_data(rows):
@@ -84,7 +84,7 @@ YEARS_SELECTED = st.multiselect('Seleccionar años:', YEARS)
 
 # Mask to filter dataframe
 mask_countries = data['BOROUGH'].isin(COUNTRIES_SELECTED)
-
+data = data[mask_countries]
 
 if st.checkbox("Visualizar Datos Crudos",False):
     st.subheader("Datos Crudos")
