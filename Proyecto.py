@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pydeck as pdk
+import sodapy
 from sodapy import Socrata
 
 client = Socrata("data.cityofnewyork.us", None)
