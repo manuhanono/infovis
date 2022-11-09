@@ -83,7 +83,7 @@ YEARS = data['BOROUGH'].unique().dropna(how="any")
 YEARS_SELECTED = st.multiselect('Seleccionar años:', YEARS)
 
 # Mask to filter dataframe
-mask_countries = data['country'].isin(COUNTRIES_SELECTED)
+mask_countries = data['BOROUGH'].isin(COUNTRIES_SELECTED)
 
 
 if st.checkbox("Visualizar Datos Crudos",False):
