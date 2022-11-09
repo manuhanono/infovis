@@ -73,6 +73,7 @@ data = data.rename(columns={"NUMBER OF PERSONS INJURED": "PINJ", "LATITUDE": "la
 data['YEAR'] = pd.DatetimeIndex(data['DATE']).year
 data['MONTH'] = pd.DatetimeIndex(data['DATE']).month
 
+
 # for use with dropdown
 original_data = data
 
@@ -106,8 +107,8 @@ if st.checkbox("Visualizar Datos Crudos",False):
     st.write(data.tail(10))
 
 st.header("Where are the most people injured in NYC?")
-injured_people = st.slider("Number of persons injured in NYC",0,19)
-st.map(data.query("PINJ >= @injured_people")[['lat', 'lon']].dropna(how="any"))
+#injured_people = st.slider("Number of persons injured in NYC",0,19)
+st.map(data.query("lat <= 41")[['lat', 'lon']].dropna(how="any"))
     
 st.header("AA")
 st.bar_chart(data=data, x="PINJ", y="BOROUGH")
