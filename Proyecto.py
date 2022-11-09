@@ -2,9 +2,15 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pydeck as pdk
+from sodapy import Socrata
+
+client = Socrata("data.cityofnewyork.us", None)
+results = client.get("h9gi-nx95")
 
 
-DATA_URL = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
+
+
+# DATA_URL = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
 
 st.title("Trabajo Final Proyecto I - Manuel Hanono y Bruno Soifer.")
 st.markdown("This application is streamlit dashboard that can be used to analyze motor vehicle collision in NYC")
@@ -13,7 +19,8 @@ st.markdown("This may take a while as the CSV file is 185MB")
 
 @st.cache(persist=True)
 def load_data(rows):
-    data = pd.read_csv(DATA_URL, nrows= rows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
+    data = pd.DataFrame.from_records(results, nrows= rows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
+    # data = pd.read_csv(DATA_URL, nrows= rows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
     # data.seek(0)
     data.dropna(subset =['LATITUDE', 'LONGITUDE'], inplace=True)
     lowercase = lambda x: str(x).lower()
