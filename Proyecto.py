@@ -84,7 +84,7 @@ st.sidebar.header("Filtrar por:")
 
 # Create a list of possible values and multiselect menu with them in it.
 YEARS = data['YEAR'].unique()
-container = st.beta_container()
+container = st.container()
 all = st.sidebar.checkbox("Todos los años")
  
 if all:
