@@ -86,12 +86,11 @@ st.sidebar.header("Filtrar por:")
 YEARS = data['YEAR'].unique()
 container = st.container()
 all = st.sidebar.checkbox("Todos los años")
- 
 if all:
-    YEARS_SELECTED = container.sidebar.multiselect("Seleccionar uno o mas años:",
+    YEARS_SELECTED = container.multiselect("Seleccionar uno o mas años:",
          YEARS,YEARS)
 else:
-    YEARS_SELECTED =  container.sidebar.multiselect("Seleccionar uno o mas años:",
+    YEARS_SELECTED =  container.multiselect("Seleccionar uno o mas años:",
         YEARS)
 # Mask to filter dataframe
 mask_years = data['YEAR'].isin(YEARS_SELECTED)
