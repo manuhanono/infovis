@@ -70,8 +70,7 @@ data = load_data(100000)
 
 
 data = data.rename(columns={"NUMBER OF PERSONS INJURED": "PINJ", "LATITUDE": "lat", "LONGITUDE": "lon", "CRASH DATE": "DATE"})
-data = data["DATE"].to_string()
-data = datetime.strptime(data["DATE"], '%y-%m-%d')
+
 
 # for use with dropdown
 original_data = data
@@ -83,7 +82,7 @@ st.markdown("Manuel Hanono y Bruno Soifer.")
 st.sidebar.header("Filtrar por:")
 
 # Create a list of possible values and multiselect menu with them in it.
-YEARS = data['BOROUGH'].unique()
+YEARS = year(data['DATE']).unique()
 YEARS_SELECTED = st.sidebar.multiselect('Años:', YEARS)
 
 # Mask to filter dataframe
