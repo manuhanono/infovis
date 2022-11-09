@@ -65,10 +65,10 @@ def load_data(rows):
     df25 = pd.read_csv(DATA_URL25)
     data=pd.concat([df1,df2,df3,df4,df5,df6,df7,df8,df9,df10,df11,df12,df13,df14,df15,df16,df17,df18,df19,df20,df21,df22,df23,df24,df25],ignore_index=True, nrows=rows)
     # data.seek(0)
-    data.dropna(subset =['LATITUDE', 'LONGITUDE'], inplace=True)
-    lowercase = lambda x: str(x).lower()
-    data.rename(lowercase,axis='columns',inplace=True)
-    data.rename(columns={'crash_date_crash_time':'date/time'},inplace=True)
+    # data.dropna(subset =['LATITUDE', 'LONGITUDE'], inplace=True)
+    # lowercase = lambda x: str(x).lower()
+    # data.rename(lowercase,axis='columns',inplace=True)
+    # data.rename(columns={'crash_date_crash_time':'date/time'},inplace=True)
     return data
 
 data = load_data(1950000)
