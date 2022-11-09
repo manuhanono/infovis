@@ -108,7 +108,7 @@ if st.checkbox("Visualizar Datos Crudos",False):
 
 st.header("Where are the most people injured in NYC?")
 #injured_people = st.slider("Number of persons injured in NYC",0,19)
-st.map(data.query("lat <= 41")[['lat', 'lon']].dropna(how="any"))
+st.map(data.query("lat <= 41 && lat > 39")[['lat', 'lon']].dropna(how="any"))
     
 st.header("AA")
 st.bar_chart(data=data, x="PINJ", y="BOROUGH")
