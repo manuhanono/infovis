@@ -67,7 +67,10 @@ def load_data(rows):
 
 data = load_data(100000)
 
+
+
 data = data.rename(columns={"NUMBER OF PERSONS INJURED": "PINJ", "LATITUDE": "lat", "LONGITUDE": "lon", "CRASH DATE": "DATE"})
+data = data["DATE"].to_string()
 data = datetime.strptime(data["DATE"], '%y-%m-%d')
 
 # for use with dropdown
