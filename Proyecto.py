@@ -74,7 +74,10 @@ if st.checkbox("Visualizar Datos Crudos",False):
     st.subheader("Datos Crudos")
     st.write(data.tail(10))
 
-
+st.header("Where are the most people injured in NYC?")
+injured_people = st.slider("Number of persons injured in NYC",0,19)
+st.map(data.query(""NUMBER OF PEDESTRIANS INJURED" >= @injured_people")[['latitude', 'longitude']].dropna(how="any"))
+    
 # make a dropdown search
 st.header("Top 5 dangerous streets affected by types")
 select = st.selectbox("Affected by type of people", ['Pedestrians', 'Cyclists', 'Motorists'])
