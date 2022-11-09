@@ -83,7 +83,7 @@ st.markdown("Manuel Hanono y Bruno Soifer.")
 st.sidebar.header("Filtrar por:")
 
 # Create a list of possible values and multiselect menu with them in it.
-YEARS = data['YEAR'].unique().sort_values()
+YEARS = data['YEAR'].unique().sort()
 container = st.container()
 all = st.sidebar.checkbox("Todos los años")
 if all:
