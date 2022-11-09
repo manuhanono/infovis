@@ -79,7 +79,7 @@ st.markdown("Manuel Hanono y Bruno Soifer.")
 st.sidebar.write("Seleccionar los años")
 
 # Create a list of possible values and multiselect menu with them in it.
-YEARS = data['BOROUGH'].unique().dropna(how="any")
+YEARS = data['BOROUGH'].unique()
 YEARS_SELECTED = st.multiselect('Seleccionar años:', YEARS)
 
 # Mask to filter dataframe
