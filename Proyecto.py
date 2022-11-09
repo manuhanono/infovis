@@ -66,7 +66,8 @@ def load_data(rows):
     return data
 
 data = load_data(1937848)
-data.rename(columns={"NUMBER OF PERSONS INJURED": "PINJ"})
+
+data = data.rename(columns={"NUMBER OF PERSONS INJURED": "PINJ"})
 
 
 # for use with dropdown
