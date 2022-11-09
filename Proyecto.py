@@ -85,7 +85,7 @@ injured_people = st.slider("Number of persons injured in NYC",0,19)
 st.map(data.query("PINJ >= @injured_people")[['lat', 'lon']].dropna(how="any"))
     
 st.header("AA")
-st.line_chart(data=data, x=BOROUGH, y=PINJ)
+st.line_chart(data=data, x="DATE", y="PINJ")
 # make a dropdown search
 st.header("Top 5 dangerous streets affected by types")
 select = st.selectbox("Affected by type of people", ['Pedestrians', 'Cyclists', 'Motorists'])
