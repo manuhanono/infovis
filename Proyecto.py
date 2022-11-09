@@ -71,7 +71,7 @@ def load_data(rows):
     # data.rename(columns={'crash_date_crash_time':'date/time'},inplace=True)
     return data
 
-data = load_data(1950000)
+data = load_data(1937848)
 
 # for use with dropdown
 original_data = data
