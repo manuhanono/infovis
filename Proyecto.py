@@ -122,7 +122,7 @@ fig = px.scatter_geo(
     height=800,
 )
 
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig)
 
 st.header("AA")
 st.bar_chart(data=data, x="PINJ", y="BOROUGH")
