@@ -74,6 +74,24 @@ data = load_data(500000)
 data = data.rename(columns={"NUMBER OF PERSONS INJURED": "PINJ", "LATITUDE": "lat", "LONGITUDE": "lon", "CRASH DATE": "DATE"})
 data['YEAR'] = pd.DatetimeIndex(data['DATE']).year
 data['MONTH'] = pd.DatetimeIndex(data['DATE']).month
+data['CANT_AUTOS'] = 0
+
+if data["VEHICLE TYPE CODE 1"] == <NA>:
+    data['CANT_AUTOS'] = 0
+elif data["VEHICLE TYPE CODE 2"] == <NA>:
+    data['CANT_AUTOS'] = 1
+elif data["VEHICLE TYPE CODE 3"] == <NA>:
+    data['CANT_AUTOS'] = 2
+elif data["VEHICLE TYPE CODE 4"] == <NA>:
+    data['CANT_AUTOS'] = 3
+elif data["VEHICLE TYPE CODE 5"] == <NA>:
+    data['CANT_AUTOS'] = 4
+else:
+    data['CANT_AUTOS'] = 5
+
+fig <- plot_ly(x =~data["CANT_AUTOS"], type = "histogram") %>% layout(title = 'Cantidad de vehículos involucrados por accidente', xaxis=list(title='Vehículos involucrados'),yaxis = list(title = 'Cantidad de choques'))
+
+fig
 
 
 # for use with dropdown
