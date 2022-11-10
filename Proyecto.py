@@ -117,7 +117,7 @@ fig = px.scatter_geo(
     lon="lon",
     lat="lat",
     projection="natural earth",
-    hover_name="hover_column",
+    #hover_name="hover_column",
     size="PINJ",  # <-- Set the column name for size
     height=800,
 )
