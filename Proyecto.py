@@ -74,7 +74,7 @@ data = load_data(500000)
 data = data.rename(columns={"NUMBER OF PERSONS INJURED": "PINJ", "LATITUDE": "lat", "LONGITUDE": "lon", "CRASH DATE": "DATE"})
 data['YEAR'] = pd.DatetimeIndex(data['DATE']).year
 data['MONTH'] = pd.DatetimeIndex(data['DATE']).month
-data['CANT_AUTOS'] = 0
+data['CANT_AUTOS'] = 5
 data = data.replace({pd.NA: ""})
 
 if data["VEHICLE TYPE CODE 1"].to_string() == "":
@@ -87,8 +87,7 @@ elif data["VEHICLE TYPE CODE 4"].to_string() == "":
     data['CANT_AUTOS'] = 3
 elif data["VEHICLE TYPE CODE 5"].to_string() == "":
     data['CANT_AUTOS'] = 4
-    else:
-        data['CANT_AUTOS'] = 5
+
 
 
 
