@@ -89,9 +89,6 @@ elif data["VEHICLE TYPE CODE 5"].empty:
 else:
     data['CANT_AUTOS'] = 5
 
-fig = px.histogram(data, x="CANT_AUTOS")
-fig.show()
-
 
 
 
@@ -131,6 +128,9 @@ st.header("Where are the most people injured in NYC?")
 #injured_people = st.slider("Number of persons injured in NYC",0,19)
 st.map(data.query("lat <= 41 & lat > 39")[['lat', 'lon']].dropna(how="any"))
 
+st.header("Preg 1")
+fig = px.histogram(data, x="CANT_AUTOS")
+fig.show()
 
 st.header("AA")
 st.bar_chart(data=data, x="PINJ", y="BOROUGH")
