@@ -87,8 +87,8 @@ elif data["VEHICLE TYPE CODE 4"].to_string() == "":
     data['CANT_AUTOS'] = 3
 elif data["VEHICLE TYPE CODE 5"].to_string() == "":
     data['CANT_AUTOS'] = 4
-else:
-    data['CANT_AUTOS'] = 5
+    else:
+        data['CANT_AUTOS'] = 5
 
 
 
