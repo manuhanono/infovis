@@ -77,15 +77,15 @@ data['MONTH'] = pd.DatetimeIndex(data['DATE']).month
 data['CANT_AUTOS'] = 5
 data = data.replace({pd.NA: ""})
 
-if data["VEHICLE TYPE CODE 1"].to_string() == "":
+if data["VEHICLE TYPE CODE 1"] == "":
     data['CANT_AUTOS'] = 0
-elif data["VEHICLE TYPE CODE 2"].to_string() == "":
+elif data["VEHICLE TYPE CODE 2"] == "":
     data['CANT_AUTOS'] = 1
-elif data["VEHICLE TYPE CODE 3"].to_string() == "":
+elif data["VEHICLE TYPE CODE 3"] == "":
     data['CANT_AUTOS'] = 2
-elif data["VEHICLE TYPE CODE 4"].to_string() == "":
+elif data["VEHICLE TYPE CODE 4"] == "":
     data['CANT_AUTOS'] = 3
-elif data["VEHICLE TYPE CODE 5"].to_string() == "":
+elif data["VEHICLE TYPE CODE 5"] == "":
     data['CANT_AUTOS'] = 4
 
 
