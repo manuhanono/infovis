@@ -4,6 +4,7 @@ import numpy as np
 import pydeck as pdk
 import plotly.express as px
 from datetime import datetime
+import plotly.figure_factory as ff
 
 #DATA_URL = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
 
@@ -111,18 +112,27 @@ st.header("Where are the most people injured in NYC?")
 #injured_people = st.slider("Number of persons injured in NYC",0,19)
 st.map(data.query("lat <= 41 & lat > 39")[['lat', 'lon']].dropna(how="any"))
 
-fig = px.scatter_geo(
-    data_frame=data,
-    color="WEEKDAY",
-    lon="lon",
-    lat="lat",
-    projection="natural earth",
-    #hover_name="hover_column",
-    size="PINJ",  # <-- Set the column name for size
-    height=800,
-)
 
-st.plotly_chart(fig)
+df_sample = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/minoritymajority.csv')
+df_sample_r = df_sample[df_sample['STNAME'] == 'New York']
+
+values = df_sample_r['TOT_POP'].tolist()
+fips = df_sample_r['FIPS'].tolist()
+
+endpts = list(np.mgrid[min(values):max(values):4j])
+colorscale = ["#030512","#1d1d3b","#323268","#3d4b94","#3e6ab0",
+              "#4989bc","#60a7c7","#85c5d3","#b7e0e4","#eafcfd"]
+fig = ff.create_choropleth(
+    fips=fips, values=values, scope=['New York'], show_state_data=True,
+    colorscale=colorscale, binning_endpoints=endpts, round_legend_values=True,
+    plot_bgcolor='rgb(229,229,229)',
+    paper_bgcolor='rgb(229,229,229)',
+    legend_title='Population by County',
+    county_outline={'color': 'rgb(255,255,255)', 'width': 0.5},
+    exponent_format=True,
+)
+fig.layout.template = None
+fig.show()
 
 st.header("AA")
 st.bar_chart(data=data, x="PINJ", y="BOROUGH")
