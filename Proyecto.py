@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pydeck as pdk
+import plotly as px
 from datetime import datetime
 
 #DATA_URL = ("https://github.com/chairielazizi/streamlit-collision/blob/master/Motor_Vehicle_Collisions_-_Crashes.csv?raw=true")
@@ -110,7 +111,19 @@ st.header("Where are the most people injured in NYC?")
 #injured_people = st.slider("Number of persons injured in NYC",0,19)
 st.map(data.query("lat <= 41 & lat > 39")[['lat', 'lon']].dropna(how="any"))
 
-    
+fig = px.scatter_geo(
+    data_frame=data,
+    color="WEEKDAY",
+    lon="lon",
+    lat="lat",
+    projection="natural earth",
+    hover_name="hover_column",
+    size="PINJ",  # <-- Set the column name for size
+    height=800,
+)
+
+st.plotly_chart(fig, use_container_width=True)
+
 st.header("AA")
 st.bar_chart(data=data, x="PINJ", y="BOROUGH")
 # make a dropdown search
