@@ -89,9 +89,10 @@ elif data["VEHICLE TYPE CODE 5"].isna():
 else:
     data['CANT_AUTOS'] = 5
 
-fig <- plot_ly(x =~data["CANT_AUTOS"], type = "histogram") %>% layout(title = 'Cantidad de vehículos involucrados por accidente', xaxis=list(title='Vehículos involucrados'),yaxis = list(title = 'Cantidad de choques'))
+fig = px.histogram(data, x="CANT_AUTOS")
+fig.show()
 
-fig
+
 
 
 # for use with dropdown
