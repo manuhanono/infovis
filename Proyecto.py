@@ -36,7 +36,7 @@ DATA_URL25 = ("https://raw.githubusercontent.com/manuhanono/infovis/main/splitcs
 
 
 
-@st.cache(persist=True)
+@st.cache(ttl=24*60*60)
 def load_data(rows):
     df1 = pd.read_csv(DATA_URL1)
     df2 = pd.read_csv(DATA_URL2)
