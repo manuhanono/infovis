@@ -130,7 +130,7 @@ st.map(data.query("lat <= 41 & lat > 39")[['lat', 'lon']].dropna(how="any"))
 
 st.header("Preg 1")
 fig = px.histogram(data, x="CANT_AUTOS")
-fig.show()
+st.plotly_chart(fig, use_container_width=True)
 
 st.header("AA")
 st.bar_chart(data=data, x="PINJ", y="BOROUGH")
