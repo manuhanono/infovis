@@ -76,15 +76,15 @@ data['YEAR'] = pd.DatetimeIndex(data['DATE']).year
 data['MONTH'] = pd.DatetimeIndex(data['DATE']).month
 data['CANT_AUTOS'] = 0
 
-if data["VEHICLE TYPE CODE 1"].isnull():
+if data["VEHICLE TYPE CODE 1"].isnan():
     data['CANT_AUTOS'] = 0
-elif data["VEHICLE TYPE CODE 2"].isnull():
+elif data["VEHICLE TYPE CODE 2"].isnan():
     data['CANT_AUTOS'] = 1
-elif data["VEHICLE TYPE CODE 3"].isnull():
+elif data["VEHICLE TYPE CODE 3"].isnan():
     data['CANT_AUTOS'] = 2
-elif data["VEHICLE TYPE CODE 4"].isnull():
+elif data["VEHICLE TYPE CODE 4"].isnan():
     data['CANT_AUTOS'] = 3
-elif data["VEHICLE TYPE CODE 5"].isnull():
+elif data["VEHICLE TYPE CODE 5"].isnan():
     data['CANT_AUTOS'] = 4
 else:
     data['CANT_AUTOS'] = 5
