@@ -75,18 +75,19 @@ data = data.rename(columns={"NUMBER OF PERSONS INJURED": "PINJ", "LATITUDE": "la
 data['YEAR'] = pd.DatetimeIndex(data['DATE']).year
 data['MONTH'] = pd.DatetimeIndex(data['DATE']).month
 data['CANT_AUTOS'] = 5
-data = data.replace({pd.NA: np.nan})
+data = data.replace({pd.NA: ""})
 
-if data["VEHICLE TYPE CODE 1"].empty:
-    data['CANT_AUTOS'] = 0
-elif data["VEHICLE TYPE CODE 2"].empty:
-    data['CANT_AUTOS'] = 1
-elif data["VEHICLE TYPE CODE 3"].empty:
-    data['CANT_AUTOS'] = 2
-elif data["VEHICLE TYPE CODE 4"].empty:
-    data['CANT_AUTOS'] = 3
-elif data["VEHICLE TYPE CODE 5"].empty:
-    data['CANT_AUTOS'] = 4
+for i in range(1:length(data)):
+    if data["VEHICLE TYPE CODE 1"][i].empty:
+        data['CANT_AUTOS'][i] = 0
+    elif data["VEHICLE TYPE CODE 2"][i].empty:
+        data['CANT_AUTOS'][i] = 1
+    elif data["VEHICLE TYPE CODE 3"][i].empty:
+        data['CANT_AUTOS'][i] = 2
+    elif data["VEHICLE TYPE CODE 4"][i].empty:
+        data['CANT_AUTOS'][i] = 3
+    elif data["VEHICLE TYPE CODE 5"][i].empty:
+        data['CANT_AUTOS'][i] = 4
 
 
 
