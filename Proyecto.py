@@ -36,7 +36,7 @@ DATA_URL25 = ("https://raw.githubusercontent.com/manuhanono/infovis/main/splitcs
 
 
 
-@st.cache(ttl=24*60*60)
+@st.cache()
 def load_data(rows):
     df1 = pd.read_csv(DATA_URL1)
     df2 = pd.read_csv(DATA_URL2)
@@ -65,33 +65,27 @@ def load_data(rows):
     df25 = pd.read_csv(DATA_URL25)
     data=pd.concat([df1,df2,df3,df4,df5,df6,df7,df8,df9,df10,df11,df12,df13,df14,df15,df16,df17,df18,df19,df20,df21,df22,df23,df24,df25],ignore_index=True)
     data = data.head(rows)
+    #Manipulacion del DATASET extra
+    data = data.rename(columns={"NUMBER OF PERSONS INJURED": "PINJ", "LATITUDE": "lat", "LONGITUDE": "lon", "CRASH DATE": "DATE"})
+    data['YEAR'] = pd.DatetimeIndex(data['DATE']).year
+    data['MONTH'] = pd.DatetimeIndex(data['DATE']).month
+    data['CANT_AUTOS'] = 5
+    data = data.replace({pd.NA: ""})
+
+    for i in range(len(data)):
+        if data["VEHICLE TYPE CODE 1"][i] == "":
+            data['CANT_AUTOS'][i] = 0
+        elif data["VEHICLE TYPE CODE 2"][i] == "":
+            data['CANT_AUTOS'][i] = 1
+        elif data["VEHICLE TYPE CODE 3"][i] == "":
+            data['CANT_AUTOS'][i] = 2
+        elif data["VEHICLE TYPE CODE 4"][i] == "":
+            data['CANT_AUTOS'][i] = 3
+        elif data["VEHICLE TYPE CODE 5"][i] == "":
+            data['CANT_AUTOS'][i] = 4
     return data
 
 data = load_data(500000)
-
-#Manipulacion del DATASET extra
-
-data = data.rename(columns={"NUMBER OF PERSONS INJURED": "PINJ", "LATITUDE": "lat", "LONGITUDE": "lon", "CRASH DATE": "DATE"})
-data['YEAR'] = pd.DatetimeIndex(data['DATE']).year
-data['MONTH'] = pd.DatetimeIndex(data['DATE']).month
-data['CANT_AUTOS'] = 5
-data = data.replace({pd.NA: ""})
-
-for i in range(len(data)):
-    if data["VEHICLE TYPE CODE 1"][i] == "":
-        data['CANT_AUTOS'][i] = 0
-    elif data["VEHICLE TYPE CODE 2"][i] == "":
-        data['CANT_AUTOS'][i] = 1
-    elif data["VEHICLE TYPE CODE 3"][i] == "":
-        data['CANT_AUTOS'][i] = 2
-    elif data["VEHICLE TYPE CODE 4"][i] == "":
-        data['CANT_AUTOS'][i] = 3
-    elif data["VEHICLE TYPE CODE 5"][i] == "":
-        data['CANT_AUTOS'][i] = 4
-
-
-
-
 
 # for use with dropdown
 original_data = data
