@@ -76,7 +76,7 @@ data['YEAR'] = pd.DatetimeIndex(data['DATE']).year
 data['MONTH'] = pd.DatetimeIndex(data['DATE']).month
 data['CANT_AUTOS'] = 0
 
-if data["VEHICLE TYPE CODE 1"].tostring().isnull():
+if data["VEHICLE TYPE CODE 1"].to_string().isnull():
     data['CANT_AUTOS'] = 0
 elif data["VEHICLE TYPE CODE 2"].isnull():
     data['CANT_AUTOS'] = 1
