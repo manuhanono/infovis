@@ -36,7 +36,7 @@ DATA_URL25 = ("https://raw.githubusercontent.com/manuhanono/infovis/main/splitcs
 
 
 
-@st.cache()
+@st.cache(persist=True)
 def load_data(rows):
     df1 = pd.read_csv(DATA_URL1)
     df2 = pd.read_csv(DATA_URL2)
@@ -85,7 +85,7 @@ def load_data(rows):
             data['CANT_AUTOS'][i] = 4
     return data
 
-data = load_data(500000)
+data = load_data(100000)
 
 # for use with dropdown
 original_data = data
