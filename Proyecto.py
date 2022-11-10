@@ -75,6 +75,7 @@ data = data.rename(columns={"NUMBER OF PERSONS INJURED": "PINJ", "LATITUDE": "la
 data['YEAR'] = pd.DatetimeIndex(data['DATE']).year
 data['MONTH'] = pd.DatetimeIndex(data['DATE']).month
 data['CANT_AUTOS'] = 0
+data = data.replace({pd.NA: np.nan})
 
 if data["VEHICLE TYPE CODE 1"].to_string() == "":
     data['CANT_AUTOS'] = 0
