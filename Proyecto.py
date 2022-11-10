@@ -77,7 +77,7 @@ data['MONTH'] = pd.DatetimeIndex(data['DATE']).month
 data['CANT_AUTOS'] = 5
 data = data.replace({pd.NA: ""})
 
-for i in range(1:length(data)):
+for i in range(1,length(data)):
     if data["VEHICLE TYPE CODE 1"][i].empty:
         data['CANT_AUTOS'][i] = 0
     elif data["VEHICLE TYPE CODE 2"][i].empty:
